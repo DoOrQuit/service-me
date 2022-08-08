@@ -4,6 +4,9 @@ import time
 
 
 class Service_me():
+
+    """Class that defines whole service management. Object of this class is a client with arguments required to identify the
+        client and make a related records """
     
     def __init__(self, first_name, last_name, car_number_plate, mileage = 0):
         self.first_name = first_name
@@ -31,7 +34,7 @@ class Service_me():
     
     def maintenance_plan(self):
 
-        """List of works planned depends on mileage of a client"""
+        """List of works planned depends on mileage of a client's car"""
 
         try:
             conn = psycopg2.connect(database = 'car_service_db', user = 'postgres', password = 'datapass')
@@ -206,12 +209,6 @@ class Service_me():
             else:
                 print('Please, enter a correct input. Agree[y] or Refuse[n]')
                 continue
-
-
-
-if __name__ == '__main__':
-    client1 = Service_me('Valentyn', 'Shevchenko', 'AA5533AA', 28000)
-    client1.maintenance_perform()
 
 
 
